@@ -52,14 +52,14 @@
     </main>
 
     <script>
-        // ฟังก์ชันสำหรับแสดงผลตะกร้าสินค้า
+        // ระบบแสดงผลตะกร้าสินค้า
         function renderCart() {
             // ดึงข้อมูลจาก localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const footer = document.querySelector('.cart-footer');
             const totalLabel = document.querySelector('.total-label');
 
-            // ลบรายการเก่าที่แสดงอยู่ (เพื่อไม่ให้ซ้ำตอน render ใหม่)
+            // ลบรายการเก่าที่แสดงอยู่
             document.querySelectorAll('.cart-item').forEach(item => item.remove());
 
             let totalPrice = 0;
@@ -102,7 +102,7 @@
             totalLabel.innerText = `TOTAL : ${totalPrice.toLocaleString()} THB`;
         }
 
-        // ฟังก์ชันลบ/ลดจำนวนสินค้า
+        // ฟังก์ชันลบ/ลดจำนวนสินค้าใน Cart
         function removeItem(index) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -114,12 +114,11 @@
                 cart.splice(index, 1);
             }
 
-            // บันทึกค่าใหม่ลง localStorage และสั่งให้แสดงผลใหม่
+            // บันทึกลง localStorage และสั่งให้แสดงผลใหม่
             localStorage.setItem('cart', JSON.stringify(cart));
             renderCart();
         }
 
-        // เรียกใช้ฟังก์ชันตอนโหลดหน้าเว็บ
         document.addEventListener('DOMContentLoaded', renderCart);
     </script>
 </body>

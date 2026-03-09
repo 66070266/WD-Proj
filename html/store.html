@@ -1337,21 +1337,21 @@
     </main>
 
     <script>
-        // เลือกปุ่ม Add to Cart ทั้งหมด
+        // เลือกปุ่ม "Add to Cart" ทั้งหมด
         const addToCartBtns = document.querySelectorAll('.add-btn');
 
         addToCartBtns.forEach(button => {
             button.addEventListener('click', function () {
-                // หาการ์ดสินค้าที่ปุ่มนี้อยู่
+                // หาสินค้า
                 const card = this.closest('.product-card');
 
-                // ดึงข้อมูลสินค้าจากการ์ด
+                // ดึงข้อมูลสินค้า
                 const teamName = card.querySelector('h3').innerText;
                 const desc = card.querySelector('.jersey-desc').innerText;
                 const priceText = card.querySelector('.jersey-cost').innerText;
                 const imgSrc = card.querySelector('img').getAttribute('src');
 
-                // แปลงราคาเป็นตัวเลข (ลบลูกน้ำและคำว่า THB ออก)
+                // แปลงราคาจาก Text เป็น Int (ลบ "," และ "THB")
                 const price = parseInt(priceText.replace(/,/g, '').replace(' THB', ''));
                 const fullName = `${teamName} ${desc}`;
 
@@ -1360,13 +1360,13 @@
                 let selectedSize = null;
                 sizeRadios.forEach(radio => {
                     if (radio.checked) {
-                        // ดึงข้อความไซส์ (S, M, L...) ที่อยู่หลังปุ่ม radio
+                        // ดึงข้อมูลไซส์จาก radio
                         selectedSize = radio.parentElement.innerText.trim();
                     }
                 });
 
                 if (!selectedSize) {
-                    alert('Please select a size first!'); // แจ้งเตือนถ้ายังไม่เลือกไซส์
+                    alert('Please select a size first!');
                     return;
                 }
 
@@ -1382,36 +1382,35 @@
                 // ดึงข้อมูลตะกร้าเดิมจาก localStorage (ถ้าไม่มีให้สร้าง Array เปล่า)
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-                // เช็คว่ามีสินค้านี้ (ทีมเดียวกัน และไซส์เดียวกัน) ในตะกร้าหรือยัง
+                // เช็คว่ามีสินค้านี้ในตะกร้าหรือยัง
                 const existingItemIndex = cart.findIndex(item => item.name === itemData.name && item.size === itemData.size);
 
                 if (existingItemIndex > -1) {
-                    // ถ้ามีแล้ว ให้บวกจำนวนเพิ่ม
+                    // ถ้ามีแล้ว ให้ +1
                     cart[existingItemIndex].quantity += 1;
                 } else {
                     // ถ้ายังไม่มี ให้เพิ่มเข้าไปใหม่
                     cart.push(itemData);
                 }
 
-                // บันทึกกลับลงไปใน localStorage
+                // บันทึกกลับไปใน localStorage
                 localStorage.setItem('cart', JSON.stringify(cart));
 
                 alert(`Added ${teamName} (Size: ${selectedSize}) to your cart!`);
 
-                // ยกเลิกการเลือกไซส์หลังจากกดเพิ่มลงตะกร้าแล้ว (Optional)
+                // ยกเลิกการเลือกไซส์หลังจากกดเพิ่มลงตะกร้าแล้ว
                 sizeRadios.forEach(radio => radio.checked = false);
             });
         });
 
-        // ระบบ Filter สินค้า (แบบใช้ Data Attribute)
+        // ระบบ Filter สินค้า
         const categorySelect = document.getElementById('category');
         const productCards = document.querySelectorAll('.product-card');
 
         categorySelect.addEventListener('change', function () {
-            const selectedValue = this.value; // ค่าที่เลือกจาก Dropdown: "", "club", หรือ "nation"
+            const selectedValue = this.value; // ค่าที่เลือกจาก Dropdown
 
             productCards.forEach(card => {
-                // อ่านค่าป้ายชื่อที่เราแปะไว้ใน HTML
                 const cardCategory = card.getAttribute('data-category');
 
                 // เช็คเงื่อนไข: ถ้าเลือก All ("") หรือ เลือกตรงกับป้ายชื่อ ให้แสดงผล

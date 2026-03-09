@@ -82,14 +82,17 @@
     </main>
 
     <script>
+        // ระบบคำนวณไซส์เสื้อ
         const heightInput = document.getElementById('height');
         const weightInput = document.getElementById('weight');
         const resultInput = document.getElementById('result');
 
         function calculateSize() {
+            // ดึงค่า Height และ Weight จาก input
             const height = parseFloat(heightInput.value);
             const weight = parseFloat(weightInput.value);
 
+            // สูตรคำนวณหาไซส์คร่าว ๆ
             if (height >= 130 && height <= 220 && weight >= 40 && weight <= 150) {
                 const sizeIndex = (weight / height) * 100;
                 let size = "";
@@ -109,7 +112,8 @@
                 }
                 resultInput.value = size;
 
-            } else if (height = "" || weight === "") {
+            // Height หรือ Weight ไม่ถูกต้อง (เช่น ว่างเปล่า หรือไม่อยู่ในช่วงที่กำหนด)
+            } else if (height === "" || weight === "") {
                 resultInput.value = "";
             } else {
                 resultInput.value = "Invalid height & weight";

@@ -8,12 +8,10 @@ main {
 
 .product-container {
     display: grid;
-    /* เปลี่ยนจาก repeat(5, 1fr) เป็นบรรทัดล่างนี้ */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
     padding: 30px;
     justify-content: center;
-    /* จัดให้อยู่กึ่งกลางเวลาปัดบรรทัด */
 }
 
 .product-card {
