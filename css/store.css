@@ -104,7 +104,7 @@ span {
     text-transform: uppercase;
     cursor: pointer;
     width: 90%;
-    transition: background 0.3s; /*
+    transition: background 0.3s; 
 }
 
 .product-card button:hover {
