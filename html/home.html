@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bayon&family=Bungee&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>1st Kit</h1>
+        <nav>
+            <li id="home-link"><a href="home.html">Home</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="cart.html">Cart</a></li>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="hot">
+                <h2>Hot Selling 🔥</h2>
+                <div class="image-container">
+                    <img src="../image/MUN 25-26 Home Kit.avif" alt="Manchester United 25/26 Home Kit">
+                    <img src="../image/LIV 25-26 Home Kit.avif" alt="Liverpool 25/26 Home Kit">
+                    <img src="../image/ARS 25-26 Home Kit.avif" alt="Arsenal 25/26 Home Kit">
+                </div>
+            </section>
+
+            <section id="flash">
+                <h2 id="h2Flash">Flash Sale ⏳</h2>
+                <div class="image-container">
+                    <img src="../image/BUR 25-26 Home Kit.jpg" alt="Burnley 25/26 Home Kit">
+                    <img src="../image/WOL 25-26 Home Kit.jpg" alt="Wolverhampton 25/26 Home Kit">
+                    <img src="../image/WHU 25-26 Home Kit.jpg" alt="West Ham 25/26 Home Kit">
+                </div>
+            </section>
+
+            <section id="size">
+                <h2>Size Calculator ➕</h2>
+                <form id="sizeForm">
+                    <label for="height">Height (cm) :</label>
+                    <input type="number" id="height" name="height" required>
+
+                    <label for="weight">Weight (kg) :</label>
+                    <input type="number" id="weight" name="weight" required>
+
+                    <label for="result">Result :</label>
+                    <input type="text" id="result" name="result" readonly>
+                </form>
+            </section>
+
+            <section id="gallery">
+                <h2>Gallery 📸</h2>
+                <div class="image-container">
+                    <img src="../image/ARS Model.avif" alt="Arsenal 25/26 Home Kit Model">
+                    <img src="../image/CHE Model.webp" alt="Chelsea 25/26 Home Kit Model">
+                    <img src="../image/LIV Model.avif" alt="Liverpool 25/26 Home Kit Model">
+                    <img src="../image/MUN Model.webp" alt="Manchester United 25/26 Home Kit Model">
+                    <img src="../image/MCI Model.avif" alt="Manchester City 25/26 Home Kit Model">
+                    <img src="../image/ENG Model.webp" alt="England National Team 24/25 Home Kit Model">
+                    <img src="../image/ITA Model.webp" alt="Italy National Team 24/25 Home Kit Model">
+                    <img src="../image/ESP Model.webp" alt="Spain National Team 24/25 Home Kit Model">
+                    <img src="../image/GER Model.avif" alt="Germany National Team 24/25 Home Kit Model">
+                    <img src="../image/POR Model.png" alt="Portugal National Team 24/25 Home Kit Model">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const heightInput = document.getElementById('height');
+        const weightInput = document.getElementById('weight');
+        const resultInput = document.getElementById('result');
+
+        function calculateSize() {
+            const height = parseFloat(heightInput.value);
+            const weight = parseFloat(weightInput.value);
+
+            if (height >= 130 && height <= 220 && weight >= 40 && weight <= 150) {
+                const sizeIndex = (weight / height) * 100;
+                let size = "";
+
+                if (sizeIndex >= 30 && sizeIndex <= 35) {
+                    size = "S";
+                } else if (sizeIndex > 35 && sizeIndex <= 40) {
+                    size = "M";
+                } else if (sizeIndex > 40 && sizeIndex <= 45) {
+                    size = "L";
+                } else if (sizeIndex > 45 && sizeIndex <= 50) {
+                    size = "XL";
+                } else if (sizeIndex > 50) {
+                    size = "2XL";
+                } else {
+                    size = "Invalid height & weight";
+                }
+                resultInput.value = size;
+
+            } else if (height = "" || weight === "") {
+                resultInput.value = "";
+            } else {
+                resultInput.value = "Invalid height & weight";
+            }
+        }
+
+        heightInput.addEventListener('input', calculateSize);
+        weightInput.addEventListener('input', calculateSize);
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

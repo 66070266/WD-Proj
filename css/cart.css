@@ -1,0 +1,150 @@
+main {
+    font-family: 'Anton SC', sans-serif;
+    padding: 20px 10%;
+}
+
+#cart-link a {
+    color: #2B396A;
+}
+
+.cart-txt h2 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+/* กล่องสีขาวขนาดใหญ่ */
+.cart-container {
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    /* เพื่อให้มุมโค้งตัดส่วนหัวตาราง */
+    color: #111721;
+    padding-bottom: 30px;
+}
+
+/* หัวตารางสีดำ */
+.cart-header {
+    text-transform: uppercase;
+    background-color: #111721;
+    color: white;
+    display: flex;
+    padding: 15px 50px;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* จัดระยะของหัวข้อให้ตรงกับเนื้อหา */
+.cart-header span:nth-child(1) {
+    flex: 2;
+    text-align: center;
+}
+
+.cart-header span:nth-child(2) {
+    flex: 1;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.cart-header span:nth-child(3) {
+    flex: 1;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.cart-header span:nth-child(4) {
+    flex: 1;
+    text-align: center;
+    margin-right: 40px;
+}
+
+/* แถวรายการสินค้า */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.item-info {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.item-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.item-details {
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.item-size,
+.item-qty,
+.item-price {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ปุ่มลบสินค้า */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ff0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* ส่วนยอดรวมและปุ่ม BUY */
+.cart-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px 50px 0 0;
+}
+
+.total-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.total-label {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.buy-btn {
+    background-color: #111721;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Anton SC', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #1a2641;
+}

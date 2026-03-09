@@ -1,0 +1,134 @@
+main {
+    font-family: 'anton sc', sans-serif;
+}
+
+#store-link a {
+    color: #2B396A;
+}
+
+.product-container {
+    display: grid;
+    /* เปลี่ยนจาก repeat(5, 1fr) เป็นบรรทัดล่างนี้ */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    justify-content: center;
+    /* จัดให้อยู่กึ่งกลางเวลาปัดบรรทัด */
+}
+
+.product-card {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 10px;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    font-family: 'Anton SC', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin: 5px 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.jersey-desc {
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    font-weight: 100;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.jersey-cost {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+span {
+    margin: 1px;
+}
+
+.size-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.size-options label {
+    cursor: pointer;
+}
+
+.size-options span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.0rem;
+    color: #fff;
+}
+
+.size-options input[type="radio"] {
+    margin-bottom: 5px;
+    cursor: pointer;
+    accent-color: #2b396a;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: right;
+    border: none;
+}
+
+.product-card button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 90%;
+    transition: background 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #111721;
+    color: #fff;
+}
+
+#category {
+    float: right;
+    margin: 20px 50px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+    .product-container {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .product-card img {
+        max-width: 180px;
+    }
+}
