@@ -1,3 +1,7 @@
+#home-link a {
+    color: #2B396A;
+}
+
 h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -11,10 +15,6 @@ h2 {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: start;
-}
-
-#home-link a {
-    color: #2B396A;
 }
 
 #hot {
